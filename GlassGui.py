@@ -42,12 +42,160 @@ def firstRun():
     pTree.SetBool("Enabled", True)
 
     pStyle = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/MainWindow")
-    pStyle.SetString("StyleSheet", "Dark-blue.qss")
+    pStyle.SetString("StyleSheet", "Light-blue.qss")
+    
+    param = FreeCAD.ParamGet('User parameter:BaseApp/Preferences/DockWindows/TreeView')
+    param.SetBool("Enabled", True)
+    param = FreeCAD.ParamGet('User parameter:BaseApp/Preferences/DockWindows/PropertyView')
+    param.SetBool("Enabled", False)
+    param = FreeCAD.ParamGet('User parameter:BaseApp/Preferences/DockWindows/DAGView')
+    param.SetBool("Enabled", False)
+    param = FreeCAD.ParamGet('User parameter:BaseApp/Preferences/DockWindows/ComboView')
+    param.SetBool("Enabled", False)
+    
+    param = FreeCAD.ParamGet('User parameter:BaseApp/MainWindow/DockWindows')
+    param.SetBool("Std_ReportView", False)
+    param.SetBool("Std_SelectionView", False)
+    param.SetBool("Std_ComboView", False)
+    param.SetBool("Std_PythonView", False)
+    param.SetBool("Std_TreeView", True)
+    param.SetBool("Std_PropertyView", False)
+    param.SetBool("Std_ReportView", False)
+    
+    #Disable some toolbars
+    param = FreeCAD.ParamGet('User parameter:BaseApp/MainWindow/Toolbars')
+    param.SetBool("File", True)
+    param.SetBool("Workbench", False)
+    param.SetBool("Macro", False)
+    param.SetBool("View", True)
+    param.SetBool("Navigation", False)
+    param.SetBool("Structure", True)
+    param.SetBool("Part Design Modeling", True)
+    param.SetBool("Part Design Helper", True)
+    param.SetBool("Sketcher", True)
+    param.SetBool("Sketcher geometries", True)
+    param.SetBool("Sketcher constraints", True)
+    param.SetBool("Sketcher tools", False)
+    param.SetBool("Sketcher B-spline tools", False)
+    param.SetBool("Mesure", True)
+    param.SetBool("Tabs", True)
+    param.SetBool("Sketcher virtual space", False)
 
     pView = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/View")
-    pView.SetUnsigned("BackgroundColor2", 1852731135)
-    pView.SetUnsigned("BackgroundColor3", 2829625599)
-    pView.SetUnsigned("BackgroundColor4", 1852731135)
+    pView.SetUnsigned("BackgroundColor", 336897023)
+    pView.SetUnsigned("BackgroundColor2", 3857049087)
+    pView.SetUnsigned("BackgroundColor3", 3469659903)
+    pView.SetUnsigned("BackgroundColor4", 1869583359)
+    pView.SetUnsigned("HighlightColor", 3789624575)
+    pView.SetUnsigned("SelectionColor", 481107199)
+    pView.SetUnsigned("DefaultShapeColor", 3435973887)
+    pView.SetUnsigned("DefaultShapeLineColor", 421075455)
+    pView.SetUnsigned("DefaultShapeVertexColor", 421075455)
+    pView.SetUnsigned("BoundingBoxColor", 4294967295)
+    pView.SetUnsigned("AnnotationTextColor", 3402287871)
+    pView.SetUnsigned("SketchEdgeColor", 4294967295)
+    pView.SetUnsigned("SketchVertexColor", 4294967295)
+    pView.SetUnsigned("EditedEdgeColor", 5636095)
+    pView.SetUnsigned("EditedVertexColor", 5636095)    
+    pView.SetUnsigned("ConstructionColor", 4294902015)
+    pView.SetUnsigned("ExternalColor", 1442775295)
+    pView.SetUnsigned("InvalidSketchColor", 4278190335)
+    pView.SetUnsigned("FullyConstrainedColor", 1044266751)
+    pView.SetUnsigned("InternalAlignedGeoColor", 5636095)
+    pView.SetUnsigned("FullyConstraintElementColor", 1044266751)
+    pView.SetUnsigned("FullyConstraintConstructionElementColor", 2868871167)
+    pView.SetUnsigned("FullyConstraintInternalAlignmentColor", 1044266751)
+    pView.SetUnsigned("FullyConstraintConstructionPointColor", 1044266751)
+    pView.SetUnsigned("ConstrainedIcoColor", 4283760895)
+    pView.SetUnsigned("NonDrivingConstrDimColor", 2555903)
+    pView.SetUnsigned("ConstrainedDimColor", 4280680703)
+    pView.SetUnsigned("ExprBasedConstrDimColor", 4286523135)
+    pView.SetUnsigned("DeactivatedConstrDimColor", 2139062271)
+    pView.SetUnsigned("CursorTextColor", 5636095)
+    pView.SetUnsigned("CursorCrosshairColor", 4294967295)
+    pView.SetUnsigned("CreateLineColor", 5636095)
+    pView.SetInt("AntiAliasing", 4)
+    pView.SetBool("UseVBO", True)
+    
+    param = FreeCAD.ParamGet('User parameter:BaseApp/Preferences/General')
+    param.SetString("AutoloadModule", "PartDesignWorkbench")
+    
+    #TabBar
+    param = FreeCAD.ParamGet('User parameter:BaseApp/TabBar')
+    param.SetString("Enabled", "MoocWorkbench,SketcherWorkbench,PartDesignWorkbench,TechDrawWorkbench,A2plusWorkbench,SpreadsheetWorkbench,SMWorkbench,SurfaceWorkbench")
+    param.SetString("Orientation", "South")
+    param.SetString("Partially", "ArchWorkbench,DraftWorkbench,FemWorkbench,ImageWorkbench,InspectionWorkbench,MeshWorkbench,NoneWorkbench,OpenSCADWorkbench,PartWorkbench,PathWorkbench,PointsWorkbench,RaytracingWorkbench,ReverseEngineeringWorkbench,RobotWorkbench,StartWorkbench,TestWorkbench,WebWorkbench")
+    param.SetString("Position", "MoocWorkbench,SketcherWorkbench,PartDesignWorkbench,TechDrawWorkbench,A2plusWorkbench,SpreadsheetWorkbench,SMWorkbench,SurfaceWorkbench,ArchWorkbench,DraftWorkbench,FemWorkbench,ImageWorkbench,InspectionWorkbench,MeshWorkbench,NoneWorkbench,OpenSCADWorkbench,PartWorkbench,PathWorkbench,PointsWorkbench,RaytracingWorkbench,ReverseEngineeringWorkbench,RobotWorkbench,StartWorkbench,TestWorkbench,WebWorkbench")
+    param.SetString("PrefButton", "On")
+    param.SetString("Style", "IconText")
+    
+    #A2Plus
+    param = FreeCAD.ParamGet('User parameter:Tux/PersistentToolbars/User/A2plusWorkbench')
+    param.SetString("Top", "Tabs,Break,File,Structure,Macro,View,Break,A2p_Part,A2p_Constraint,A2p_Misc,A2Diagnostics,A2p_Solver,Break,A2p_View")
+    param.SetString("Left", "")
+    param.SetString("Right", "")
+    param.SetString("Bottom", "Workbench")
+    param.SetBool("Saved", True)
+    
+    #MOOC
+    param = FreeCAD.ParamGet('User parameter:Tux/PersistentToolbars/User/MoocWorkbench')
+    param.SetString("Top", "Tabs,Break,File,Structure,View,Macro,Break,MOOC")
+    param.SetString("Left", "")
+    param.SetString("Right", "")
+    param.SetString("Bottom", "Workbench")
+    param.SetBool("Saved", True)
+    
+    #PartDesign
+    param = FreeCAD.ParamGet('User parameter:Tux/PersistentToolbars/User/PartDesignWorkbench')
+    param.SetString("Top", "Break,Tabs,Break,File,Structure,View,Break,Part Design Helper,Part Design Modeling,Measure")
+    param.SetString("Left", "")
+    param.SetString("Right", "")
+    param.SetString("Bottom", "Workbench")
+    param.SetBool("Saved", True)
+    
+    #Sketcher
+    param = FreeCAD.ParamGet('User parameter:Tux/PersistentToolbars/User/SketcherWorkbench')
+    param.SetString("Top", "Tabs,Break,File,Structure,View,Macro,Break,Sketcher,Sketcher geometries,Sketcher constraints")
+    param.SetString("Left", "")
+    param.SetString("Right", "")
+    param.SetString("Bottom", "Workbench")
+    param.SetBool("Saved", True)
+    
+    #SheetMetal
+    param = FreeCAD.ParamGet('User parameter:Tux/PersistentToolbars/User/SMWorkbench')
+    param.SetString("Top", "Tabs,Break,File,View,Macro,Structure,Break,Sheet Metal")
+    param.SetString("Left", "")
+    param.SetString("Right", "")
+    param.SetString("Bottom", "Workbench")
+    param.SetBool("Saved", True)
+    
+    #Spreadsheet
+    param = FreeCAD.ParamGet('User parameter:Tux/PersistentToolbars/User/SpreadsheetWorkbench')
+    param.SetString("Top", "Tabs,Break,File,View,Macro,Structure,Break,Spreadsheet")
+    param.SetString("Left", "")
+    param.SetString("Right", "")
+    param.SetString("Bottom", "Workbench")
+    param.SetBool("Saved", True)
+    
+    #Surface
+    param = FreeCAD.ParamGet('User parameter:Tux/PersistentToolbars/User/SurfaceWorkbench')
+    param.SetString("Top", "Tabs,Break,File,View,Macro,Structure,Break,Surface")
+    param.SetString("Left", "")
+    param.SetString("Right", "")
+    param.SetString("Bottom", "Workbench")
+    param.SetBool("Saved", True)
+    
+    #TechDraw
+    param = FreeCAD.ParamGet('User parameter:Tux/PersistentToolbars/User/TechDrawWorkbench')
+    param.SetString("Top", "Break,Tabs,Break,File,Structure,View,Break,TechDraw Dimensions,TechDraw File Access,TechDraw Decoration,TechDraw Pages,TechDraw Annotation,TechDraw Stacking,TechDraw Views,TechDraw Clips,TechDraw Attributes,TechDraw Centerlines,TechDraw Extend Dimensions")
+    param.SetString("Left", "")
+    param.SetString("Right", "")
+    param.SetString("Bottom", "Workbench")
+    param.SetBool("Saved", True)
+    
+    #Fasteners
+    param = FreeCAD.ParamGet('User parameter:BaseApp/Preferences/Mod/Fasteners')
+    param.SetInt("ScrewToolbarGroupMode", 2)
 
 
 def findDock():
@@ -95,7 +243,7 @@ def applyGlass(boolean, widget):
         pass
     try:
         if boolean:
-            widget.setStyleSheet("background:transparent; border:none; color:white;")
+            widget.setStyleSheet("background:transparent; border:none; color:black;")
         else:
             widget.setStyleSheet("")
     except:
