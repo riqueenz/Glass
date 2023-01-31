@@ -26,3 +26,4 @@ p = FreeCAD.ParamGet("User parameter:BaseApp/Glass")
 
 if p.GetBool("Enabled", 1) and QtCore.qVersion() >= "5":
     import GlassGui
+

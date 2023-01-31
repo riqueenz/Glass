@@ -370,9 +370,3 @@ if p.GetBool("FirstRun", 1):
 timer = QtCore.QTimer()
 timer.timeout.connect(onStart)
 timer.start(500)
-
-# Clear report view
-from PySide import QtGui
-mw=Gui.getMainWindow()
-r=mw.findChild(QtGui.QTextEdit, "Report view")
-r.clear()
