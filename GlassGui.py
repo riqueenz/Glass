@@ -196,6 +196,13 @@ def firstRun():
     #Fasteners
     param = FreeCAD.ParamGet('User parameter:BaseApp/Preferences/Mod/Fasteners')
     param.SetInt("ScrewToolbarGroupMode", 2)
+    
+    #Report view
+    param = FreeCAD.ParamGet('User parameter:BaseApp/Preferences/OutputWindow')
+    param.SetBool("checkShowReportViewOnError", False)
+    param.SetBool("checkShowReportViewOnLogMessage", False)
+    param.SetBool("checkShowReportViewOnNormalMessage", False)
+    param.SetBool("checkShowReportViewOnWarning", False)
 
 
 def findDock():
