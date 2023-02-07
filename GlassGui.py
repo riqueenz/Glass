@@ -122,9 +122,9 @@ def firstRun():
     
     #TabBar
     param = FreeCAD.ParamGet('User parameter:BaseApp/TabBar')
-    param.SetString("Enabled", "MoocWorkbench,SketcherWorkbench,PartDesignWorkbench,TechDrawWorkbench,A2plusWorkbench,SpreadsheetWorkbench,SMWorkbench,SurfaceWorkbench")
+    param.SetString("Enabled", "MoocWorkbench,SketcherWorkbench,PartDesignWorkbench,TechDrawWorkbench,A2plusWorkbench,SpreadsheetWorkbench,SMWorkbench")
     param.SetString("Orientation", "South")
-    param.SetString("Partially", "ArchWorkbench,DraftWorkbench,FemWorkbench,ImageWorkbench,InspectionWorkbench,MeshWorkbench,NoneWorkbench,OpenSCADWorkbench,PartWorkbench,PathWorkbench,PointsWorkbench,RaytracingWorkbench,ReverseEngineeringWorkbench,RobotWorkbench,StartWorkbench,TestWorkbench,WebWorkbench")
+    param.SetString("Partially", "ArchWorkbench,DraftWorkbench,FemWorkbench,ImageWorkbench,SurfaceWorkbench,InspectionWorkbench,MeshWorkbench,NoneWorkbench,OpenSCADWorkbench,PartWorkbench,PathWorkbench,PointsWorkbench,RaytracingWorkbench,ReverseEngineeringWorkbench,RobotWorkbench,StartWorkbench,TestWorkbench,WebWorkbench")
     param.SetString("Position", "MoocWorkbench,SketcherWorkbench,PartDesignWorkbench,TechDrawWorkbench,A2plusWorkbench,SpreadsheetWorkbench,SMWorkbench,SurfaceWorkbench,ArchWorkbench,DraftWorkbench,FemWorkbench,ImageWorkbench,InspectionWorkbench,MeshWorkbench,NoneWorkbench,OpenSCADWorkbench,PartWorkbench,PathWorkbench,PointsWorkbench,RaytracingWorkbench,ReverseEngineeringWorkbench,RobotWorkbench,StartWorkbench,TestWorkbench,WebWorkbench")
     param.SetString("PrefButton", "On")
     param.SetString("Style", "IconText")
