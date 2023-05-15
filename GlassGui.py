@@ -210,13 +210,10 @@ def firstRun():
 
 def findDock():
     """Find combo view widget."""
-    #mw = Gui.getMainWindow()
+    mw = Gui.getMainWindow()
     global dock
-    global dock2
-    dock = mw.findChild(QtGui.QDockWidget, "Tree view")
-    #dock = Gui.getMainWindow().findChild(QtGui.QDockWidget, "Python console")
-    #dock = Gui.getMainWindow().findChild(QtGui.QDockWidget, "Combo View")
-    dock2 = Gui.getMainWindow().findChild(QtGui.QDockWidget, "Property view")
+    #dock = mw.findChild(QtGui.QDockWidget, "Tree view")
+    dock = Gui.getMainWindow().findChild(QtGui.QDockWidget, "Combo View")
 
 
 def createActions():
@@ -246,9 +243,6 @@ def applyGlass(boolean, widget):
             widget.setWindowFlags(dock.windowFlags() & ~QtCore.
                                   Qt.
                                   FramelessWindowHint)
-            widget.setWindowFlags(dock2.windowFlags() & ~QtCore.
-                                  Qt.
-                                  FramelessWindowHint)
     except:
         pass
     try:
@@ -261,7 +255,7 @@ def applyGlass(boolean, widget):
         pass
     try:
         if boolean:
-            widget.setStyleSheet("background:transparent; border:none; color:black;")
+            widget.setStyleSheet("background:transparent; border:none; color:grey;")
         else:
             widget.setStyleSheet("")
     except:
@@ -305,7 +299,6 @@ def widgetList(boolean):
     """List of child widgets."""
     children = []
     children.append(dock)
-    children.append(dock2)
 
     child = True
     while child:
@@ -331,11 +324,6 @@ def setMode():
         dock.setTitleBarWidget(wid)
         wid.hide()
         dock.show()
-        
-        dock2.setParent(mdi)
-        dock2.setTitleBarWidget(wid)
-        wid.hide()
-        dock2.show()
         widgetList(True)
         mode = 1
     else:
@@ -343,11 +331,6 @@ def setMode():
         dock.setTitleBarWidget(None)
         mw.addDockWidget(QtCore.Qt.LeftDockWidgetArea, dock)
         dock.show()
-        
-        dock2.setParent(mw)
-        dock2.setTitleBarWidget(None)
-        mw.addDockWidget(QtCore.Qt.LeftDockWidgetArea, dock)
-        dock2.show()
         widgetList(False)
         mode = 0
 
@@ -357,7 +340,6 @@ def setMode():
 def setVisibility():
     """Toggle visibility."""
     dock.toggleViewAction().trigger()
-    dock2.toggleViewAction().trigger()
 
 
 def onResize():
@@ -367,21 +349,15 @@ def onResize():
     if mode == 1:
         x = 0
         y = 0
-        w = 150
+        w = 250
         h = (mdi.geometry().height() -
              mdi.findChild(QtGui.QTabBar).geometry().height())
         dock.setGeometry(x, y, w, h)
-        screenWidth = mdi.geometry().width()
-        cubeSize = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/NaviCube").GetInt("CubeSize")
-        w = 250
-        dock2.setGeometry(screenWidth-w, cubeSize, w, h-cubeSize)
 
     if str(Gui.activeView()) == "View3DInventor":
         dock.show()
-        dock2.show()
     else:
         dock.hide()
-        dock2.hide()
 
 
 def onStart():
