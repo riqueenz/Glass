@@ -42,7 +42,8 @@ def firstRun():
     pTree.SetBool("Enabled", True)
 
     pStyle = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/MainWindow")
-    pStyle.SetString("StyleSheet", "Light-blue.qss")
+    pStyle.SetString("StyleSheet", "Light.qss")
+    pStyle.SetString("Theme", "Light")
     
     param = FreeCAD.ParamGet('User parameter:BaseApp/Preferences/DockWindows/TreeView')
     param.SetBool("Enabled", True)
